@@ -6,7 +6,7 @@ Developed by **[@ic32k](https://github.com/ic32k)**.
 
 ---
 
-## 🎯 Overview
+## Overview
 
 This project is tailored for security researchers and enthusiasts to practice:
 *   **Simple/Differential Power Analysis (SPA/DPA)** & **Electromagnetic Analysis (EMA)**: Using near-field probes (EMF), LNAs, and capture devices like **ChipWhisperer** or **PicoGlitcher**.
@@ -16,7 +16,7 @@ The firmware provides a real-time OLED interface and a full UART CLI for selecti
 
 ---
 
-## 📟 Hardware Setup
+## Hardware Setup
 
 ### Device: ESP32-C3 Mini 0.42" OLED
 The ESP32-C3 is a RISC-V based SoC, making it an interesting target for architectural side-channel research.
@@ -54,21 +54,21 @@ To perform Voltage or EM Glitching:
 
 ---
 
-## 🕹️ Exercises & Menu Options
+## Exercises & Menu Options
 
 The firmware includes 10 modes, selectable via the onboard button or UART commands (`n` for Next, `s` for Select, or `0-9` for direct jump).
 
-### ⚡ Glitch Testing
+### Glitch Testing
 *   **[0] G(a) - Glitch Auto**: Runs a continuous loop of a critical counter. The `TRIGGER_PIN` goes HIGH during the loop. If the counter is corrupted, the OLED displays "GLITCH!".
 *   **[1] G(m) - Glitch Manual**: Same as above, but requires a button press or UART command for each iteration.
 
-### 🔑 AES Side-Channel (EMA/SPA)
+### AES Side-Channel (EMA/SPA)
 *   **[2] SH(a) - AES HW Auto**: Uses the ESP32-C3 **Hardware Accelerator** for AES-128. Ideal for studying hardware implementation leaks.
 *   **[3] SH(m) - AES HW Manual**: Manual trigger for Hardware AES.
 *   **[4] SS(a) - AES SW Auto**: Uses a **Software Tiny-AES** implementation. Software implementations are typically much "louder" and easier to analyze for SPA/DPA.
 *   **[5] SS(m) - AES SW Manual**: Manual trigger for Software AES.
 
-### 🛡️ Password Timing Attacks
+### Password Timing Attacks
 *   **[6] PV(m) - Password Vuln Manual**: A vulnerable password check using `strcmp`-style logic (terminates on first wrong byte). Perfect for **Timing Attacks**.
 *   **[7] PV(j) - Password Vuln Jitter**: Same as above, but with added random **Jitter (Noise)** to frustrate simple timing analysis.
 *   **[8] PS(m) - Password Safe Manual**: A **Constant-Time** password check. Even if bytes are wrong, the execution time remains the same.
@@ -76,7 +76,7 @@ The firmware includes 10 modes, selectable via the onboard button or UART comman
 
 ---
 
-## ⌨️ UART Control Interface
+## UART Control Interface
 
 The menu is fully controllable via the Serial Monitor (115200 baud):
 *   **`n` / `N`**: Move to the next menu option.
@@ -87,7 +87,7 @@ The menu is fully controllable via the Serial Monitor (115200 baud):
 
 ---
 
-## 📜 License & Credits
+## License & Credits
 
 *   **Author**: ic32k
 *   **Framework**: Arduino / ESP-IDF
